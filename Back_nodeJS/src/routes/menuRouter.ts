@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { container } from 'tsyringe';
+import { DanhMucController } from '../controllers/danhmucController';
+import { MenuController } from '../controllers/menuController';
+const menuRouter = Router();
+const menuController = container.resolve(MenuController);
+menuRouter.get('/get-all-menu', menuController.GetMenuAll.bind(menuController));
+// menuRouter.get('/get-all-tintuc', menuController.getTintucAll.bind(menuController));
+// menuRouter.post('/create', menuController.insertTintuc.bind(menuController));
+export default menuRouter;
